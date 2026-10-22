@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Details | Lumen Press</title>
+    <meta name="description" content="Book details from the Lumen Press digital library catalog." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="book">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Lumen Press home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lumen <em>Press</em></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="my-library.html">My Library</a></li>
+            <li><a href="scanner.html">QR Scanner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li data-admin-nav hidden><a href="add-book.html">Add Book</a></li>
+            <li data-auth-nav><a class="nav-login" href="login.html">Login</a><a class="auth-signup-link" href="signup.html">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="detail-page">
+      <div class="container">
+        <p class="breadcrumb"><a href="catalog.html">Catalog</a><span aria-hidden="true">/</span>Book details</p>
+        <div id="detail-status" class="results-status" aria-live="polite">Loading book details…</div>
+        <article id="book-detail" class="book-detail is-hidden" aria-labelledby="detail-title">
+          <div class="detail-cover-wrap">
+            <div id="detail-cover" class="detail-cover"></div>
+          </div>
+          <div class="detail-copy">
+            <p id="detail-genre" class="eyebrow"></p>
+            <h1 id="detail-title"></h1>
+            <p id="detail-author" class="detail-author"></p>
+            <p id="detail-year" class="detail-year"></p>
+            <section class="reading-section" aria-labelledby="reading-heading">
+              <h2 id="reading-heading">Read this book</h2>
+              <p id="reading-status" class="reading-status" aria-live="polite">Loading reading options…</p>
+              <div id="reading-actions" class="reading-actions"></div>
+              <a id="view-editions-link" class="view-editions-link" target="_blank" rel="noopener noreferrer" hidden>View other editions</a>
+            </section>
+            <div class="book-actions detail-actions">
+              <button id="detail-save" type="button" class="primary-action">Save to My Library</button>
+              <button id="detail-favorite" type="button" class="favorite-button" data-favorite-id="">Favorite</button>
+              <a class="text-button detail-back" href="catalog.html">Back to catalog</a>
+            </div>
+            <section class="description-section" aria-labelledby="description-heading">
+              <h2 id="description-heading">About this book</h2>
+              <p id="detail-description" class="detail-description" aria-live="polite">Loading description from Open Library…</p>
+              <p id="detail-description-source" class="description-source"></p>
+            </section>
+            <p id="detail-edition-isbn" class="detail-edition-isbn" hidden></p>
+            <div id="edition-selector-wrap" class="edition-selector-wrap" hidden>
+              <label for="edition-selector">Edition</label>
+              <select id="edition-selector" aria-describedby="edition-selector-note"></select>
+              <p id="edition-selector-note" class="edition-selector-note">Changing edition updates its ISBN and verified reading options.</p>
+            </div>
+            <details id="edition-details" class="edition-details">
+              <summary>Edition details</summary>
+              <dl id="detail-identifiers" class="detail-identifiers"></dl>
+            </details>
+            <section class="detail-links-section" aria-labelledby="detail-links-heading">
+              <h2 id="detail-links-heading">Find this book</h2>
+              <p class="finder-disclaimer">Retailer links open search results. Prices and availability are not verified.</p>
+              <div id="detail-external-links" class="finder-links"></div>
+            </section>
+            <section class="qr-section" aria-labelledby="book-qr-heading">
+              <div>
+                <p class="modal-kicker">Keep this record handy</p>
+                <h2 id="book-qr-heading">Book QR code</h2>
+              </div>
+              <div id="book-qr-code" class="qr-code-output" aria-label="QR code for this book" hidden></div>
+              <p id="book-qr-status" class="results-status" aria-live="polite">Preparing QR code…</p>
+              <button id="download-book-qr" class="secondary-action" type="button" disabled>Download PNG</button>
+            </section>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Lumen Press · Digital Library Catalog</p>
+        <p>Book data from Open Library. Saved books stay in this browser.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

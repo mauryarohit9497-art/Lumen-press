@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | Lumen Press</title>
+    <meta name="description" content="Create a Lumen Press account." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="auth">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Lumen Press home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lumen <em>Press</em></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="my-library.html">My Library</a></li>
+            <li><a href="scanner.html">QR Scanner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li data-admin-nav hidden><a href="add-book.html">Add Book</a></li>
+            <li data-auth-nav><a class="nav-login" href="login.html">Login</a><a class="auth-signup-link" href="signup.html" aria-current="page">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="auth-page">
+      <div class="container auth-container">
+        <p class="eyebrow">A shelf of your own</p>
+        <h1>Create an account.</h1>
+        <p class="auth-intro">Use your email to join Lumen Press.</p>
+        <section class="auth-panel" aria-label="Sign up form">
+          <form id="signup-form" class="auth-form">
+            <label for="signup-name">Display name</label>
+            <input id="signup-name" name="displayName" type="text" autocomplete="name" maxlength="80" required />
+            <label for="signup-email">Email</label>
+            <input id="signup-email" name="email" type="email" autocomplete="email" required />
+            <label for="signup-password">Password</label>
+            <div class="password-field">
+              <input id="signup-password" name="password" type="password" autocomplete="new-password" minlength="8" aria-describedby="signup-password-note" required />
+              <button type="button" class="password-toggle" data-password-toggle aria-controls="signup-password" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+            <p id="signup-password-note" class="auth-field-note">Use at least 8 characters.</p>
+            <label for="signup-confirm-password">Confirm password</label>
+            <div class="password-field">
+              <input id="signup-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" required />
+              <button type="button" class="password-toggle" data-password-toggle aria-controls="signup-confirm-password" aria-label="Show confirmPassword" aria-pressed="false">Show</button>
+            </div>
+            <button class="primary-action auth-submit" type="submit">Create account</button>
+            <p id="signup-status" class="auth-status" data-auth-status role="status" aria-live="polite"></p>
+          </form>
+          <p class="auth-switch">Already have an account? <a href="login.html">Sign in</a></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Lumen Press · Digital Library Catalog</p>
+        <p>Your personal shelf syncs to your account when you sign in.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Lumen Press</title>
+    <meta name="description" content="About the Lumen Press digital library catalog." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="about">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Lumen Press home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lumen <em>Press</em></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="my-library.html">My Library</a></li>
+            <li><a href="scanner.html">QR Scanner</a></li>
+            <li><a href="about.html" aria-current="page">About</a></li>
+            <li data-auth-nav><a class="nav-login" href="login.html">Login</a><a class="auth-signup-link" href="signup.html">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero compact-hero" aria-labelledby="about-heading">
+        <div class="container hero-inner">
+          <p class="eyebrow">Lumen Press</p>
+          <h1 id="about-heading">A personal shelf for books.</h1>
+          <p class="hero-copy">A small browser-based catalog for finding, saving, and keeping track of books.</p>
+        </div>
+      </section>
+      <section class="catalog-section" aria-label="Project details">
+        <div class="container about-copy">
+          <h2>Book records</h2>
+          <p>Catalog search and book metadata come from Open Library. Cover images are served by Open Library Covers. Information can be incomplete or vary between records.</p>
+          <h2>Your library</h2>
+          <p>Authentication uses Firebase. When you sign in, your saved books, favorites, reading status, and reading progress sync to your private Firestore library. Guest data stays in this browser until you sign in.</p>
+          <h2>QR codes</h2>
+          <p>Book codes point to the corresponding details page. The scanner accepts recognized catalog identifiers and same-site details links; it does not forward arbitrary scanned URLs.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Lumen Press · Digital Library Catalog</p>
+        <p>Book data from Open Library. Saved books stay in this browser.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

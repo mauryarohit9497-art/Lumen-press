@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library | Lumen Press</title>
+    <meta name="description" content="Your saved books, favorites, and reading progress." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="library">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Lumen Press home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lumen <em>Press</em></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="my-library.html" aria-current="page">My Library</a></li>
+            <li><a href="scanner.html">QR Scanner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li data-admin-nav hidden><a href="add-book.html">Add Book</a></li>
+            <li data-auth-nav><a class="nav-login" href="login.html">Login</a><a class="auth-signup-link" href="signup.html">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero compact-hero" aria-labelledby="library-heading">
+        <div class="container hero-inner">
+          <p class="eyebrow">Your shelves</p>
+          <h1 id="library-heading">My Library</h1>
+          <p class="hero-copy">Saved books and reading progress, kept in this browser.</p>
+        </div>
+      </section>
+      <section class="catalog-section" aria-label="Saved books">
+        <div class="container">
+          <header class="section-header library-toolbar">
+            <p id="library-count" class="library-count" aria-live="polite">0 titles saved</p>
+            <label class="library-filter-label" for="library-filter">Show
+              <select id="library-filter">
+                <option value="all">All saved</option>
+                <option value="favorites">Favorites</option>
+                <option value="to-read">Want to read</option>
+                <option value="reading">Currently reading</option>
+                <option value="finished">Finished</option>
+              </select>
+            </label>
+          </header>
+          <div id="library-grid" class="book-grid"></div>
+          <p id="library-empty" class="empty-note">Your shelf is empty. Save a book from the catalog to start a list.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Lumen Press · Digital Library Catalog</p>
+        <p>Saved books and reading status stay in this browser.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

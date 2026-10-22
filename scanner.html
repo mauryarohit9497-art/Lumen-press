@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Scanner | Lumen Press</title>
+    <meta name="description" content="Scan a Lumen Press book QR code with a camera or image." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="scanner">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Lumen Press home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lumen <em>Press</em></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="my-library.html">My Library</a></li>
+            <li><a href="scanner.html" aria-current="page">QR Scanner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li data-admin-nav hidden><a href="add-book.html">Add Book</a></li>
+            <li data-auth-nav><a class="nav-login" href="login.html">Login</a><a class="auth-signup-link" href="signup.html">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero compact-hero" aria-labelledby="scanner-heading">
+        <div class="container hero-inner">
+          <p class="eyebrow">Book finder</p>
+          <h1 id="scanner-heading">Scan a book code.</h1>
+          <p class="hero-copy">Camera access starts only when you choose Start Scanner.</p>
+        </div>
+      </section>
+      <section class="catalog-section" aria-label="QR scanner">
+        <div class="container scanner-layout">
+          <div id="scanner-view" class="scanner-view" aria-label="Camera preview"></div>
+          <div class="scanner-controls">
+            <div class="scanner-buttons">
+              <button id="start-scanner" class="primary-action" type="button">Start Scanner</button>
+              <button id="stop-scanner" class="secondary-action" type="button" disabled>Stop</button>
+            </div>
+            <p id="scanner-status" class="results-status" aria-live="polite">Camera not running.</p>
+            <label class="upload-label" for="qr-image">Choose a QR image</label>
+            <input id="qr-image" class="file-input" type="file" accept="image/*" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Lumen Press · Digital Library Catalog</p>
+        <p>Scanned codes are checked against this catalog before opening.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog | Lumen Press</title>
+    <meta name="description" content="Search and browse books from the Open Library catalog." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="catalog">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Lumen Press home">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Lumen <em>Press</em></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html" aria-current="page">Catalog</a></li>
+            <li><a href="my-library.html">My Library</a></li>
+            <li><a href="scanner.html">QR Scanner</a></li>
+            <li><a href="about.html">About</a></li>
+            <li data-admin-nav hidden><a href="add-book.html">Add Book</a></li>
+            <li data-auth-nav><a class="nav-login" href="login.html">Login</a><a class="auth-signup-link" href="signup.html">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="catalog-heading">
+        <div class="container hero-inner">
+          <p class="eyebrow">The collection</p>
+          <h1 id="catalog-heading">Browse the catalog.</h1>
+          <p class="hero-copy">Search real book records by title or author, then follow the shelves that catch your eye.</p>
+          <form class="search-form" role="search" aria-label="Search the catalog">
+            <label class="visually-hidden" for="book-search">Search books</label>
+            <input id="book-search" name="q" type="search" placeholder="Try The Left Hand of Darkness" autocomplete="off" />
+            <button type="submit">Search</button>
+          </form>
+          <p id="search-status" class="search-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="catalog-section" aria-labelledby="uploaded-books-heading">
+        <div class="container">
+          <header class="section-header">
+            <div>
+              <h2 id="uploaded-books-heading">The Lumen Press shelf</h2>
+              <p>Books curated by the library team, with links to read from their original sources.</p>
+            </div>
+            <a class="text-button" data-admin-nav hidden href="add-book.html">Add a book</a>
+          </header>
+          <p id="uploaded-books-status" class="results-status" aria-live="polite">Loading books added to Lumen Press…</p>
+          <div id="uploaded-books-grid" class="book-grid"></div>
+        </div>
+      </section>
+
+      <section id="search-results" class="catalog-section is-hidden" aria-labelledby="search-results-heading">
+        <div class="container">
+          <header class="section-header">
+            <h2 id="search-results-heading">Search results</h2>
+            <button id="clear-search" class="text-button" type="button">Clear search</button>
+          </header>
+          <div id="search-status-panel" class="results-status" hidden aria-live="polite"></div>
+          <div id="search-grid" class="book-grid"></div>
+        </div>
+      </section>
+
+      <section class="catalog-section" aria-labelledby="genre-heading">
+        <div class="container">
+          <header class="section-header">
+            <h2 id="genre-heading">Browse by Genre</h2>
+            <p>Start with a mood, then follow the shelf.</p>
+          </header>
+          <div id="home-status-panel" class="results-status" hidden aria-live="polite"></div>
+          <div id="genre-filters" class="genre-filters" role="tablist" aria-label="Book genres"></div>
+          <div id="genre-grid" class="book-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>Lumen Press · Digital Library Catalog</p>
+        <p>Book data from Open Library. Saved books stay in this browser.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="catalog-books.js"></script>
+  </body>
+</html>

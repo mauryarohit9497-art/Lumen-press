@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a Book | Lumen Press</title>
+    <meta name="description" content="Add book details, a cover image URL, and a legal online reading link to Lumen Press." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="auth">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" aria-label="Lumen Press home"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text">Lumen <em>Press</em></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-bar" aria-hidden="true"></span>Menu</button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary"><ul>
+          <li><a href="index.html">Home</a></li><li><a href="catalog.html">Catalog</a></li><li><a href="my-library.html">My Library</a></li><li><a href="scanner.html">QR Scanner</a></li><li><a href="about.html">About</a></li><li data-admin-nav hidden><a href="add-book.html" aria-current="page">Add Book</a></li><li data-auth-nav><a class="nav-login" href="login.html">Login</a><a class="auth-signup-link" href="signup.html">Sign up</a></li>
+        </ul></nav>
+      </div>
+    </header>
+    <main id="main" class="auth-page">
+      <div class="container auth-container add-book-container">
+        <p class="eyebrow">Library administration</p>
+        <h1>Add a book.</h1>
+        <p class="auth-intro">Add book details, a cover image URL, and a link to read the book online. No file upload or billing setup is needed.</p>
+        <section id="add-book-locked" class="auth-panel" hidden>
+          <h2>Admin access required</h2>
+          <p>This page is only available to a Lumen Press administrator. Sign in with your admin account, or ask the project owner to grant your account admin access.</p>
+          <p><a href="login.html?next=add-book.html">Sign in</a> · <a href="catalog.html">Return to catalog</a></p>
+        </section>
+        <section id="add-book-panel" class="auth-panel" hidden>
+          <form id="add-book-form" class="auth-form">
+            <label for="book-title">Book title *</label><input id="book-title" name="title" maxlength="180" required />
+            <label for="book-author">Author *</label><input id="book-author" name="author" maxlength="160" required />
+            <div class="add-book-two-col">
+              <div><label for="book-isbn">ISBN</label><input id="book-isbn" name="isbn" maxlength="20" /></div>
+              <div><label for="book-year">Publication year</label><input id="book-year" name="year" type="number" min="1000" max="2100" inputmode="numeric" /></div>
+            </div>
+            <label for="book-genre">Genre *</label>
+            <select id="book-genre" name="genre" required><option value="">Choose a genre</option><option>Classics</option><option>Fiction</option><option>Fantasy</option><option>Mystery</option><option>Nonfiction</option><option>Memoir</option><option>Science Fiction</option><option>Biography</option><option>History</option><option>Technology</option><option>Other</option></select>
+            <label for="book-description">Description</label><textarea id="book-description" name="description" rows="4" maxlength="5000" placeholder="A short description of the book"></textarea>
+            <label for="book-cover-url">Cover image URL *</label><input id="book-cover-url" name="coverUrl" type="url" placeholder="https://example.com/book-cover.jpg" autocomplete="url" required />
+            <p class="auth-field-note">Paste a direct image URL ending in a common image format, or a stable image link from a trusted book source. The image is displayed from its original host.</p>
+            <label for="book-read-url">Legal reading link *</label><input id="book-read-url" name="readUrl" type="url" placeholder="https://standardebooks.org/..." autocomplete="url" required />
+            <p class="auth-field-note">Use a public, legal reading/download page (for example, a public-domain book source or the publisher's page). Lumen Press stores the link, not the book file.</p>
+            <label class="upload-checkbox"><input type="checkbox" name="rightsConfirmed" required /> I confirm this cover and reading link are from sources I am allowed to share.</label>
+            <button id="add-book-submit" class="primary-action auth-submit" type="submit">Add book to catalog</button>
+            <p id="add-book-status" class="auth-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><p>Lumen Press · Digital Library Catalog</p><p>Use links to books you have permission to share.</p></div></footer>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="add-book.js"></script>
+  </body>
+</html>
